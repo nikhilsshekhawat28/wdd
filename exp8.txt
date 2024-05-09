@@ -1,0 +1,35 @@
+-----Create a JSP file (index.jsp):
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Chuck Norris Jokes</title>
+</head>
+<body>
+    <h1>Chuck Norris Jokes</h1>
+    <button onclick="getJoke()">Get Joke</button>
+    <p id="jokeText"></p>
+
+    <script>
+        function getJoke() {
+            fetch('https://api.chucknorris.io/jokes/random')
+                .then(response => response.json())
+                .then(data => {
+                    document.getElementById('jokeText').textContent = data.value;
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                    document.getElementById('jokeText').textContent = 'Failed to fetch joke. Please try again.';
+                });
+        }
+    </script>
+</body>
+</html>
+
+-----Run the application using a server that supports JSP (e.g., Apache Tomcat). Place the index.jsp file in the appropriate directory in your server's webapps folder.
+Access the application in your web browser (e.g., http://localhost:8080/your-web-app-name/index.jsp).
+This application uses JavaScript to fetch a random Chuck Norris joke from the Chuck Norris API (https://api.chucknorris.io/jokes/random) and displays it on the page when the "Get Joke" button is clicked.
+
+
+
+
+

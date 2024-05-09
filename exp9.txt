@@ -1,0 +1,32 @@
+---index.html
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Simple PHP Application</title>
+</head>
+<body>
+    <h1>Enter Your Name</h1>
+    <form action="welcome.php" method="post">
+        <input type="text" name="name">
+        <input type="submit" value="Submit">
+    </form>
+</body>
+</html>
+
+
+----welcome.php
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Welcome</title>
+</head>
+<body>
+    <?php
+    if ($_SERVER["REQUEST_METHOD"] == "POST") {
+        $name = $_POST["name"];
+        echo "<h1>Welcome, $name!</h1>";
+    }
+    ?>
+</body>
+</html>

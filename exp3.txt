@@ -1,0 +1,77 @@
+-----------------html--------------------
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Example</title>
+    
+    <!-- External CSS -->
+    <link rel="stylesheet" href="styles.css">
+
+    <!-- Internal CSS -->
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+        }
+
+        h1 {
+            color: blue;
+            text-align: center;
+        }
+
+        /* Inline CSS */
+        p {
+            color: green;
+            font-size: 1.2em;
+        }
+    </style>
+</head>
+<body>
+    <h1>Welcome to CSS Example</h1>
+    <p>This is a paragraph with inline styles.</p>
+    <p class="internal">This is a paragraph with internal styles.</p>
+    <p class="external">This is a paragraph with external styles.</p>
+</body>
+</html>
+
+
+--------------css----------------
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Example</title>
+    
+    <!-- External CSS -->
+    <link rel="stylesheet" href="styles.css">
+
+    <!-- Internal CSS -->
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+        }
+
+        h1 {
+            color: blue;
+            text-align: center;
+        }
+
+        /* Inline CSS */
+        p {
+            color: green;
+            font-size: 1.2em;
+        }
+    </style>
+</head>
+<body>
+    <h1>Welcome to CSS Example</h1>
+    <p>This is a paragraph with inline styles.</p>
+    <p class="internal">This is a paragraph with internal styles.</p>
+    <p class="external">This is a paragraph with external styles.</p>
+</body>
+</html>

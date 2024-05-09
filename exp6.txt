@@ -1,0 +1,31 @@
+-----save index.html
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Chuck Norris Jokes</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <h1>Chuck Norris Jokes</h1>
+    <button id="getJokeBtn">Get Joke</button>
+    <p id="jokeText"></p>
+
+    <script>
+        $(document).ready(function() {
+            $('#getJokeBtn').click(function() {
+                $.ajax({
+                    url: 'https://api.chucknorris.io/jokes/random',
+                    method: 'GET',
+                    success: function(response) {
+                        $('#jokeText').text(response.value);
+                    },
+                    error: function() {
+                        $('#jokeText').text('Failed to fetch joke. Please try again.');
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>

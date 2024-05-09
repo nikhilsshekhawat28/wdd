@@ -1,0 +1,28 @@
+----in bash
+npm install express
+
+
+---app.js
+// Import required modules
+const express = require('express');
+
+// Create an Express application
+const app = express();
+
+// Define routes
+app.get('/', (req, res) => {
+    res.send('Hello, World!');
+});
+
+// Start the server
+app.listen(3000, () => {
+    console.log('Server is running on http://localhost:3000');
+});
+
+
+----in bash
+node app.js
+
+
+---browser
+http://localhost:3000

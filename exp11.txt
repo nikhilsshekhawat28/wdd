@@ -1,0 +1,32 @@
+-----Create a new Spring Boot project using your favorite build tool (e.g., Maven or Gradle) and include the spring-boot-starter-web dependency.
+Create a controller class (HelloController.java) to handle requests:
+
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RestController;
+
+@RestController
+public class HelloController {
+
+    @GetMapping("/hello")
+    public String hello() {
+        return "Hello, World!";
+    }
+
+    @GetMapping("/hello/{name}")
+    public String helloName(@PathVariable String name) {
+        return "Hello, " + name + "!";
+    }
+}
+
+
+----Run the Spring Boot application. You should see the following mappings available:
+/hello - Returns "Hello, World!"
+/hello/{name} - Returns "Hello, {name}!", where {name} is a path variable.
+You can test these endpoints using tools like Postman or by navigating to the URLs in a web browser.
+
+
+
+
+
+

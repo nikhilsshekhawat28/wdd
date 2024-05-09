@@ -1,0 +1,93 @@
+-------books.xml
+
+
+<?xml version="1.0" encoding="UTF-8"?>
+<library>
+    <book>
+        <title>Harry Potter and the Sorcerer's Stone</title>
+        <author>J.K. Rowling</author>
+    </book>
+    <book>
+        <title>The Great Gatsby</title>
+        <author>F. Scott Fitzgerald</author>
+    </book>
+    <book>
+        <title>To Kill a Mockingbird</title>
+        <author>Harper Lee</author>
+    </book>
+</library>
+
+-----books.xsl
+
+<?xml version="1.0" encoding="UTF-8"?>
+<xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
+
+<xsl:template match="/">
+  <html>
+  <head>
+    <title>Book List</title>
+  </head>
+  <body>
+    <h1>Book List</h1>
+    <table border="1">
+      <tr>
+        <th>Title</th>
+        <th>Author</th>
+      </tr>
+      <xsl:for-each select="library/book">
+      <tr>
+        <td><xsl:value-of select="title"/></td>
+        <td><xsl:value-of select="author"/></td>
+      </tr>
+      </xsl:for-each>
+    </table>
+  </body>
+  </html>
+</xsl:template>
+
+</xsl:stylesheet>
+
+
+------books.html
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Books</title>
+    <script>
+        function loadXMLDoc(filename) {
+            if (window.ActiveXObject) {
+                xhttp = new ActiveXObject("Msxml2.XMLHTTP");
+            } else {
+                xhttp = new XMLHttpRequest();
+            }
+            xhttp.open("GET", filename, false);
+            try {
+                xhttp.responseType = "msxml-document";
+            } catch (err) {}
+            xhttp.send("");
+            return xhttp.responseXML;
+        }
+
+        function displayResult() {
+            xml = loadXMLDoc("books.xml");
+            xsl = loadXMLDoc("books.xsl");
+            if (window.ActiveXObject || xhttp.responseType == "msxml-document") {
+                ex = xml.transformNode(xsl);
+                document.getElementById("example").innerHTML = ex;
+            } else if (document.implementation && document.implementation.createDocument) {
+                xsltProcessor = new XSLTProcessor();
+                xsltProcessor.importStylesheet(xsl);
+                resultDocument = xsltProcessor.transformToFragment(xml, document);
+                document.getElementById("example").appendChild(resultDocument);
+            }
+        }
+    </script>
+</head>
+<body onload="displayResult()">
+    <div id="example"></div>
+</body>
+</html>
+
+
+-----This HTML file includes a script to load the XML and XSLT files and apply the transformation to display the book list as an HTML table. When you open books.html in a browser, it will load books.xml, apply the transformation defined in books.xsl, and display the book list in a table format.
